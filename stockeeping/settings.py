@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2^)4kltlz(amrl)_9s$prc0ixjuw^siv75ry!qm8333ru%-xs4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'now.sh']
 
 
 # Application definition
@@ -144,21 +144,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Assuming you have a 'static' directory in your project root.
 ]
-
-# ...
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# settings.py
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server
-EMAIL_PORT = 587  # Replace with the SMTP port
-EMAIL_USE_TLS = True  # Use TLS if supported by your SMTP server
-EMAIL_HOST_USER = 'ashrafulhaquesifat@gmail.com'  # Replace with your sender email
-EMAIL_HOST_PASSWORD = '042160127'  # Replace with your email password or an app-specific password
