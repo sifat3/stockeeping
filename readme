@@ -1,0 +1,7 @@
+This is a Django project for stock keeping.
+I built it for a client who wants to keep track of his fuel pump business.
+This project can track buying, selling. You can add new products and edit existing products only if you're the owner(SuperUser).
+For other tasks you don't need to login.
+It shows Track record of profit for daily, weekly and Monthly, also compare past 7 days, 7 weeks and 7 months in graph.
+Although most of the content is in Bengali because of the client's requirement.
+This app can generate custom pdf files(invoice) for each sales.
