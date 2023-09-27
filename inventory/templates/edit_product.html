@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_superuser %}
+    <h2>Edit Product</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit">জমা দিন</button>
+    </form>
+    {% else %}
+    <section class="welcome">
+        <h2>সুপার ইউজার ছাড়া অন্য কেও নতুন পন্য যোগ করতে পারবে না। দূঃখীত, আপনি সুপার ইউজার নন। </h2><br>
+        <a class="button" href="{% url 'login' %}">SuperUser Login</a>
+    </section>
+    {% endif %}
+{% endblock %}

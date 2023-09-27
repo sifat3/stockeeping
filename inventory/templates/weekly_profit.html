@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="profit">
+        <h1>এই সপ্তাহে মোট লাভ: {{weekly_total}} Taka</h1>
+        <h2>বিগত সাত সপ্তাহের সাপ্তাহিক লাভের তুলনা</h2>
+        <div class="graph">
+            <img src="data:image/png;base64,{{ plot_data }}" alt="Weekly Profit Comparison Chart">
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="inventory">
+        <h2>সকল পন্য</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">পণ্যের নাম</th>
+                    <th scope="col">পরিমাণ</th>
+                    <th scope="col">ক্রয় মূল্য</th>
+                    <th scope="col">বিক্রয় মূল্য</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <th scope="row">{{ product.id }}</th>
+                        <td><a href="{% url 'edit_product' product_id=product.id %}">{{ product.name }} (ইডিট করুন)</a></td>
+                        <td>{{ product.quantity }} Liter</td>
+                        <td>{{ product.unit_buying_price }} taka</td>
+                        <td>{{ product.unit_selling_price }} taka</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="profit">
+        <h1>এই মাসে মোট লাভ: {{total}} taka</h1>
+        <h2>বিগত সাত মাসের মাসিক লাভের তুলনা</h2>
+        <div class="graph">
+            <img src="data:image/png;base64,{{ plot_data }}" alt="Monthly Profit Comparison Chart">
+        </div>
+    </section>
+{% endblock %}

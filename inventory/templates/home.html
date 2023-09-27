@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Pump Inventory Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>মেসার্স আলেয়া ফিলিং ষ্টেশন</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'add_product' %}">পন্য যুক্ত করুন</a></li>
+            <li><a href="{% url 'view_inventory' %}">সকল পন্য</a></li>
+            <li><a href="{% url 'purchase_product' %}">পন্য ক্রয়</a></li>
+            <li><a href="{% url 'sell_product' %}">পন্য বিক্রয়</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{%url 'logout' %}">LogOut</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <main>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <section class="welcome">
+            <h2>ফুয়েল পাম্প ইনভেন্টরি ম্যানেজমেন্ট সিস্টেমে স্বাগতম</h2>
+            <p>দক্ষতার সাথে ক্রয় এবং বিক্রয় পরিচালনা করুন।</p>
+        </section>
+        <section>
+            <br><a href="{% url 'daily_profit' %}"><h2>আজকের লাভ এবং গ্রাফ</h2></a><br>
+            <a href="{% url 'weekly_profit' %}"><h2>এই সপ্তাহের লাভ এবং গ্রাফ</h2></a><br>
+            <a href="{% url 'monthly_profit' %}"><h2>এই মাসের লাভ এবং গ্রাফ</h2></a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; {{ year }} Inventory Management</p>
+    </footer>
+</body>
+</html>

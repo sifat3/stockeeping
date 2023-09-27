@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="profit">
+        <h1>আজ মোট লাভ: {{today_total}} Taka</h1><br>
+        <h2>বিগত সাত দিনের দৈনিক লাভের তুলনা</h2>
+        <div class="graph">
+            <img src="data:image/png;base64,{{ plot_data }}" alt="Daily Profit Comparison Chart">
+        </div>
+    </section>
+{% endblock %}
